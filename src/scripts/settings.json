@@ -1,0 +1,9 @@
+
+{
+  "web_host":    "192.168.0.113",
+  "web_port":    3000,
+  "peerjs_host": "192.168.0.113",
+  "peerjs_port": 9000,
+  "using_https": false,
+  "peerjs_debug_level": 3
+}

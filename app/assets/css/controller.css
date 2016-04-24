@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+.controller {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.left-side {
+  position: relative;
+  width: 80vmin; }
+  .left-side:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 100%; }
+  .left-side > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+
+.right-side {
+  position: relative;
+  width: 80vmin; }
+  .right-side:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 100%; }
+  .right-side > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+
+.trackball-container {
+  position: relative;
+  box-sizing: border-box; }
+  .trackball-container .circle {
+    position: absolute;
+    box-sizing: border-box;
+    left: 10%;
+    right: 10%;
+    top: 10%;
+    bottom: 10%;
+    border: 1px solid red;
+    border-radius: 50%; }
+
+.trackball {
+  position: absolute;
+  height: 30%;
+  width: 30%;
+  background-color: red;
+  border-radius: 100%; }
+
+.animate {
+  transition: all 0.1s; }
+
+#fullscreen-toggle {
+  width: 10%;
+  height: 10%;
+  left: 45%;
+  top: 10px;
+  position: absolute;
+  background-color: blue;
+  border-radius: 10%; }
+  #fullscreen-toggle:active {
+    background-color: red; }
+
+.button-container {
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.btn {
+  width: 50%;
+  height: 50%;
+  background-color: green;
+  border-radius: 100%; }
+
+.pressed {
+  background-color: red; }
+
+.hidden {
+  display: none; }
+
+#hub-id {
+  display: none; }

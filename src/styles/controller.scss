@@ -1,0 +1,182 @@
+// Place all the styles related to the satellites controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.controller {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+
+.left-side {
+  @include aspect-ratio(1, 1);
+  width: 80vmin;
+}
+
+.right-side {
+  @include aspect-ratio(1, 1);
+  width: 80vmin;
+}
+
+
+.trackball-container {
+  position: relative;
+  box-sizing: border-box;
+  .circle {
+    position: absolute;
+    box-sizing: border-box;
+    left: 10%;
+    right: 10%;
+    top: 10%;
+    bottom: 10%;
+    border: 1px solid red;
+    border-radius: 50%;
+  }
+}
+
+.trackball {
+  position: absolute;
+  height: 30%;
+  width: 30%;
+  // background: radial-gradient(circle at 30% 30%, #5cabff, #000);
+  // background-image: image-url('sphere.svg');
+  // background-size: 100% 100%;
+  background-color: red;
+  border-radius: 100%;
+  // -webkit-box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.75);
+  // -moz-box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.75);
+  // box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.75);
+}
+
+.animate {
+  transition: all 0.1s;
+}
+
+#fullscreen-toggle {
+  width: 10%;
+  height: 10%;
+  left: 45%;
+  top: 10px;
+  position: absolute;
+  background-color: blue;
+  border-radius: 10%;
+
+  &:active {
+    background-color: red;
+  }
+
+}
+
+
+// #buttons {
+//   width: 70%;
+//   height: 70%;
+//   margin: 15%;
+//   display: flex;
+//   flex-wrap: wrap;
+//   transform: rotate(45deg);
+// }
+
+
+// .btn {
+//   width: 44%;
+//   height: 44%;
+//   margin: 3%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background-color: green;
+//   border-radius: 100%;
+//   transform: rotate(-45deg);
+// }
+
+.button-container {
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.btn {
+  width: 50%;
+  height: 50%;
+  background-color: green;
+  border-radius: 100%;
+}
+
+.pressed {
+  background-color: red;
+}
+
+
+.hidden {
+  display: none;
+}
+
+
+
+@media all and (orientation:portrait) {
+
+}
+
+
+@media all and (orientation:landscape) {
+
+}
+
+#hub-id {
+  display: none;
+}
