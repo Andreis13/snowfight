@@ -38,3 +38,7 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+
+## Sublime
+*.sublime-project
+*.sublime-workspace
