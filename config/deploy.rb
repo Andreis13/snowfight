@@ -28,25 +28,13 @@ set :deploy_to, '/home/andrew/apps/snowfight'
 
 # Default value for linked_dirs is []
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system')
+set :linked_dirs, fetch(:linked_dirs, []).push('log')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-
-namespace :deploy do
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
-  end
-
-end
 
 
 namespace :snowfight do
@@ -60,7 +48,8 @@ end
 namespace :peerjs do
   task :start do
     on roles :web do
-      withing release_path do
+      within release_path do
+        execute :pwd
         execute :forever, 'start', 'config/forever/production.json'
       end
     end
@@ -68,13 +57,28 @@ namespace :peerjs do
 
   task :stop do
     on roles :web do
-      withing release_path do
+      within release_path do
         execute :forever, 'stop', 'peerjs-server'
       end
     end
+  end
+
+  task :restart do
+    invoke 'peerjs:stop'
+    invoke 'peerjs:start'
   end
 end
 
 task :setup do
   invoke 'snowfight:setup'
+end
+
+namespace :deploy do
+
+  after :restart, :clear_cache do
+    on roles(:web) do
+      invoke 'peerjs:restart'
+    end
+  end
+
 end

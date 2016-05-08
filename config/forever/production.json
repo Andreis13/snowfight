@@ -2,8 +2,8 @@
   "uid": "peerjs-server",
   "killTree": true,
   "logFile": "forever.log",
-  "outFile": "./logs/peerjs-server.log",
-  "errFile": "./logs/errors.log",
+  "outFile": "./log/peerjs-server.log",
+  "errFile": "./log/errors.log",
   "append": true,
   "command": "npm start",
   "script": "./"
