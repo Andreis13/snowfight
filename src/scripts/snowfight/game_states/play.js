@@ -9,19 +9,24 @@ var Play = function (connections) {
 };
 
 Play.prototype.create = function () {
-  // this.groups = {
-  //   floor_tiles:  this.add.group(undefined, 'floor_tiles'),
-  //   players:      this.add.group(undefined, 'players'),
-  //   snowballs:    this.add.group(undefined, 'snowballs')
-  // }
+
+  this.createGroups();
+  this.createFloor();
+  this.createPlayers();
+
+}
+
+Play.prototype.createGroups = function () {
   this.groups = {
     root: this.add.group()
   };
 
-  this.groups.floor_tiles = this.add.group(this.groups.root, 'floor_tiles')
-  this.groups.players = this.add.group(this.groups.root, 'players')
-  this.groups.snowballs = this.add.group(this.groups.root, 'snowballs')
+  this.groups.floor_tiles = this.add.group(this.groups.root, 'floor_tiles');
+  this.groups.players = this.add.group(this.groups.root, 'players');
+  this.groups.snowballs = this.add.group(this.groups.root, 'snowballs');
+}
 
+Play.prototype.createFloor = function () {
   var tile;
 
   var putTile = function(x, y) {
@@ -53,10 +58,9 @@ Play.prototype.create = function () {
   for (j = -h_half; j <= h_half; j++) {
     putTile((j-v_half) * (-tile_offset), (j+v_half) * tile_offset);
   }
+}
 
-
-
-
+Play.prototype.createPlayers = function () {
   this.players = []
 
   for (var i = 0; i < this.connections.length; i++) {
