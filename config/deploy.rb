@@ -75,13 +75,3 @@ end
 task :setup do
   invoke 'snowfight:setup'
 end
-
-namespace :deploy do
-
-  after :restart, :clear_cache do
-    on roles(:web) do
-      invoke 'peerjs:restart'
-    end
-  end
-
-end
