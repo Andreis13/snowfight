@@ -1,12 +1,15 @@
 {
   "name": "snowfight",
   "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
+  "description": "Small game build as a support project for my thesis on 'Real-Time Communication and Interaction in Modern Web'.",
   "scripts": {
     "start": "peerjs --port 9000 --debug"
   },
   "author": "Andrei Istratii",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Andreis13/snowfight"
+  },
   "license": "ISC",
   "dependencies": {
     "hammerjs": "^2.0.6",
