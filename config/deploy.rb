@@ -32,6 +32,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
+set :default_env, { path: "/home/andrew/.npm-global/bin:$PATH" }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
@@ -49,7 +50,6 @@ namespace :peerjs do
   task :start do
     on roles :web do
       within release_path do
-        execute :pwd
         execute :forever, 'start', 'config/forever/production.json'
       end
     end
@@ -64,8 +64,11 @@ namespace :peerjs do
   end
 
   task :restart do
-    invoke 'peerjs:stop'
-    invoke 'peerjs:start'
+    on roles :web do
+      within release_path do
+        execute :forever, 'restart', 'peerjs-server'
+      end
+    end
   end
 end
 
