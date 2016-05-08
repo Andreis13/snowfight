@@ -1,0 +1,10 @@
+{
+  "uid": "peerjs-server",
+  "killTree": true,
+  "logFile": "forever.log",
+  "outFile": "./logs/peerjs-server.log",
+  "errFile": "./logs/errors.log",
+  "append": true,
+  "command": "npm start",
+  "script": "./"
+}
