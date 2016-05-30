@@ -1,9 +1,9 @@
 
 {
   "web_host":    "istratii.me",
-  "web_port":    3000,
+  "web_port":    80,
   "peerjs_host": "istratii.me",
   "peerjs_port": 9000,
-  "using_https": false,
+  "using_https": true,
   "peerjs_debug_level": 3
 }
