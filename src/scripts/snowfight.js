@@ -1,12 +1,17 @@
 
 $ = require('jquery');
 var Peer = require('peerjs');
+var Hashids = require('hashids');
 var Settings = require('./settings.json');
 var Game = require('./snowfight/game.js');
 
+function getRandomId() {
+  var hashids = new Hashids('salt', 0, "0123456789abcdef");
+  return hashids.encode(Math.floor(Math.random() * 100));
+}
 
 $(function () {
-  var hub_id = 'test';// getRandomId();
+  var hub_id = getRandomId();
 
   console.log(Settings.peerjs_host)
 

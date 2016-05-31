@@ -36,7 +36,7 @@ function absorb_event(event) {
   return false;
 }
 
-function setupController(player_name) {
+function setupController(player_name, hub_id) {
   $('.controller').removeClass('hidden')
 
   $(window).resize(function (event) {
@@ -55,7 +55,7 @@ function setupController(player_name) {
     debug: Settings.peerjs_debug_level
   })
 
-  var hub_id = 'test';
+  hub_id = hub_id || 'test';
 
   var dataConnection = satellite.connect(hub_id, { metadata: { player_name: player_name } })
 
@@ -102,8 +102,9 @@ $(function () {
 
   $('form').on('submit', function (event) {
     var name = $('#player-name').val();
+    var hub_id = $('#hub-id').val();
     $('#input-form').hide()
     absorb_event(event);
-    setupController(name);
+    setupController(name, hub_id);
   })
 });

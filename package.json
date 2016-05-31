@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "hammerjs": "^2.0.6",
+    "hashids": "^1.0.2",
     "jquery": "^2.2.3",
     "jquery-hammerjs": "^2.0.0",
     "peer": "^0.2.8",
