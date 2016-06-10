@@ -49,4 +49,8 @@ Controller.prototype.button_b_released = function () {
   }
 }
 
+Controller.prototype.feedback = function () {
+  console.log('base feedback');
+}
+
 module.exports = Controller;

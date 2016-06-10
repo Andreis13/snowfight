@@ -24,8 +24,15 @@ var RemoteController = function (connection) {
     }
   }.bind(this))
 }
+
 RemoteController.prototype = new Controller();
 RemoteController.prototype.constructor = RemoteController;
+
+
+RemoteController.prototype.feedback = function () {
+  console.log('remote feedback');
+  this.connection.send({'type':'feedback'});
+}
 
 
 module.exports = RemoteController;

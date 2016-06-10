@@ -93,6 +93,12 @@ function setupController(player_name, hub_id) {
     $(this).removeClass('pressed');
     absorb_event(event);
   });
+
+  dataConnection.on('data', function (data) {
+    if (data.type == 'feedback') {
+      navigator.vibrate([500]);
+    }
+  });
 }
 
 

@@ -119,6 +119,10 @@ Player.prototype.throwSnowball = function (force_multiplier) {
 }
 
 Player.prototype.handleSnowballHit = function () {
+  if (this.health_points > 0) {
+    this.controller.feedback();
+  }
+
   this.health_points -= Math.floor(Math.random() * 25) + 30;
 
   if (this.health_points <= 0) {

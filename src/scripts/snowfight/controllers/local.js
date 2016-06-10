@@ -34,5 +34,10 @@ LocalController.prototype.update = function () {
   this.button_b_down = this.b_key.isDown
 }
 
+
+LocalController.prototype.feedback = function () {
+  console.log('local feedback');
+}
+
 module.exports = LocalController;
 
