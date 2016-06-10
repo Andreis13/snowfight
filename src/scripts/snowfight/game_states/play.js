@@ -131,6 +131,7 @@ Play.prototype.makePlayerSprite = function (x, y) {
   var sprite = this.game.add.isoSprite(x, y, 100, 'knight_8frame', 0, this.groups.players);
   sprite.anchor.set(0.5);
 
+  sprite.tint = Math.random() * 0xffffff;
   this.physics.isoArcade.enable(sprite);
 
   sprite.body.setSize(18, 18, 60, 0, 0, -18);
