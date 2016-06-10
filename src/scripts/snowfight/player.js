@@ -103,6 +103,7 @@ Player.prototype.throwSnowball = function (force_multiplier) {
     this.game.groups.snowballs
   );
 
+  snowball.tint = 0x0000aa;
   snowball.player = this; // setup back-reference
 
   snowball.anchor.set(0.5);
