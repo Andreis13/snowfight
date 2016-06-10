@@ -30,6 +30,7 @@ var Player = function (game, sprite, controller) {
     this.name = 'Test Player';
   }
 
+  this.speed_multiplier = 1.5;
 
   // Setup Phaser stuff
   this.sprite = sprite;

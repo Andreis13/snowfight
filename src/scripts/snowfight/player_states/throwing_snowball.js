@@ -19,7 +19,7 @@ ThrowingSnowballState.prototype.handleInput = function (controller) {
   var p = new Phaser.Point(controller.trackball.x, controller.trackball.y);
   var p_rotated = Phaser.Point.rotate(p, 0, 0, -45, true);
 
-  var v = p_rotated.multiply(2, 2);
+  var v = p_rotated.multiply(this.player.speed_multiplier, this.player.speed_multiplier);
 
   if (v.getMagnitudeSq() > 0) {
     this.player.startMoving(v);
