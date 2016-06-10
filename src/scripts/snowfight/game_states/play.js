@@ -77,6 +77,8 @@ Play.prototype.createPlayers = function () {
     new LocalController(this.game.input)
   ));
 
+  this.snowballs = []
+
   // this.players = [
   //   new Player(this, this.makePlayerSprite(0, 0), new LocalController(this.game.input)),
   //   new Player(this, this.makePlayerSprite(100, 100), new Controller())
@@ -106,9 +108,14 @@ Play.prototype.update = function () {
     }
   );
 
-  this.physics.isoArcade.collide(this.groups.floor_tiles, this.groups.snowballs, function (tile, snowball) {
-    snowball.destroy();
-  });
+  this.snowballs = this.snowballs.filter(function(snowball) {
+    if (snowball.body.position.z < 0) {
+      snowball.destroy();
+      return false;
+    } else {
+      return true;
+    }
+  })
 
   this.game.iso.topologicalSort(this.groups.players);
 };

@@ -113,6 +113,8 @@ Player.prototype.throwSnowball = function (force_multiplier) {
   snowball.body.velocity.z = 400;
 
   this.equipped_snowball_count -= 1;
+
+  this.game.snowballs.push(snowball);
 }
 
 Player.prototype.handleSnowballHit = function () {
